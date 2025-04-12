@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('library/', include('library.urls')),  # Incluye las URLs de la aplicación library
     path('', RedirectView.as_view(url='/library/', permanent=True)),  # Redirige la raíz a /library/
+    path('users/', include('users.urls')),  # Incluye las URLs de la aplicación users
 ]
 
 # Configuración para servir archivos multimedia en modo de desarrollo
