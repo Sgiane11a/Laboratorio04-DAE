@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Reading Lists{% endblock %}
+
+{% block content %}
+<h1>{{ user.username }}'s Reading Lists</h1>
+<ul>
+    {% for reading_list in reading_lists %}
+    <li>{{ reading_list.name }} - {{ reading_list.description }}</li>
+    {% empty %}
+    <li>No reading lists found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

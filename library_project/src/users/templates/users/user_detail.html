@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}User Detail{% endblock %}
+
+{% block content %}
+<h1>{{ user.username }}</h1>
+<p>Email: {{ user.email }}</p>
+<p>Bio: {{ user.bio }}</p>
+<p>Favorite Categories:</p>
+<ul>
+    {% for category in user.favorite_categories.all %}
+    <li>{{ category.name }}</li>
+    {% empty %}
+    <li>No favorite categories.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'users:user_reading_lists' user.id %}">View Reading Lists</a>
+<a href="{% url 'users:user_reviews' user.id %}">View Reviews</a>
+{% endblock %}
