@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Library Branches{% endblock %}
+
+{% block content %}
+<h1>🏢 Library Branches</h1>
+<ul>
+    {% for branch in branches %}
+    <li><a href="{% url 'management:branch_detail' branch.id %}">{{ branch.name }}</a></li>
+    {% empty %}
+    <li>No branches available</li>
+    {% endfor %}
+</ul>
+{% endblock %}
