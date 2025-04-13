@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Category Statistics{% endblock %}
+
+{% block content %}
+<h1>🏷️ Category Statistics</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Total Views</th>
+            <th>Total Books</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in category_stats %}
+        <tr>
+            <td>{{ category.category.name }}</td>
+            <td>{{ category.total_views }}</td>
+            <td>{{ category.total_books }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No data available</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

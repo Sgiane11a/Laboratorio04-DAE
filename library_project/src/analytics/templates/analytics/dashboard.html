@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Analytics Dashboard{% endblock %}
+
+{% block content %}
+<h1>📊 Analytics Dashboard</h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="stats-card">
+            <h3>Popular Books</h3>
+            <ul>
+                {% for book in popular_books %}
+                <li>{{ book.book__title }} - {{ book.view_count }} views</li>
+                {% empty %}
+                <li>No data available</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stats-card">
+            <h3>Category Stats</h3>
+            <ul>
+                {% for category in category_stats %}
+                <li>{{ category.category.name }} - {{ category.total_views }} views</li>
+                {% empty %}
+                <li>No data available</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="stats-card">
+            <h3>Author Stats</h3>
+            <ul>
+                {% for author in author_stats %}
+                <li>{{ author.author.name }} - {{ author.total_views }} views</li>
+                {% empty %}
+                <li>No data available</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

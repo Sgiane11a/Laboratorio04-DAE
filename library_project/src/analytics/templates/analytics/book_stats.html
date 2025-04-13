@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Statistics{% endblock %}
+
+{% block content %}
+<h1>📚 Book Statistics</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book</th>
+            <th>Views</th>
+            <th>Average Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in book_stats %}
+        <tr>
+            <td>{{ stat.book__title }}</td>
+            <td>{{ stat.view_count }}</td>
+            <td>{{ stat.avg_rating|default:"N/A" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No data available</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
